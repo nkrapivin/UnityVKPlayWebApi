@@ -6,17 +6,17 @@ using UnityEngine;
 public class VKPlayWebEventArgsBase : EventArgs
 {
     /// <summary>
-    /// "ok" если операция успешна.
+    /// "ok" РµСЃР»Рё РѕРїРµСЂР°С†РёСЏ СѓСЃРїРµС€РЅР°.
     /// </summary>
     public string status;
 
     /// <summary>
-    /// Внутренний код ошибки партнера.
+    /// Р’РЅСѓС‚СЂРµРЅРЅРёР№ РєРѕРґ РѕС€РёР±РєРё РїР°СЂС‚РЅРµСЂР°.
     /// </summary>
     public int errcode;
 
     /// <summary>
-    /// Описание кода ошибки партнера.
+    /// РћРїРёСЃР°РЅРёРµ РєРѕРґР° РѕС€РёР±РєРё РїР°СЂС‚РЅРµСЂР°.
     /// </summary>
     public string errmsg;
 }
@@ -25,14 +25,14 @@ public class VKPlayWebEventArgsBase : EventArgs
 public class GetLoginStatusCallbackData : VKPlayWebEventArgsBase
 {
     /// <summary>
-    /// 0 - пользователь не авторизован;
+    /// 0 - РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ Р°РІС‚РѕСЂРёР·РѕРІР°РЅ;
     /// <br/>
-    /// 1 - пользователь авторизован, не зарегистрирован;
+    /// 1 - РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ Р°РІС‚РѕСЂРёР·РѕРІР°РЅ, РЅРµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ;
     /// <br/>
-    /// 2 - пользователь авторизован, зарегистрирован;
+    /// 2 - РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ Р°РІС‚РѕСЂРёР·РѕРІР°РЅ, Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ;
     /// <br/>
-    /// 3 - пользователь авторизован, зарегистрирован, и совершил покупку игры
-    /// (только для премиум и платных игр с поддержкой внутриигровых транзакций).
+    /// 3 - РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ Р°РІС‚РѕСЂРёР·РѕРІР°РЅ, Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ, Рё СЃРѕРІРµСЂС€РёР» РїРѕРєСѓРїРєСѓ РёРіСЂС‹
+    /// (С‚РѕР»СЊРєРѕ РґР»СЏ РїСЂРµРјРёСѓРј Рё РїР»Р°С‚РЅС‹С… РёРіСЂ СЃ РїРѕРґРґРµСЂР¶РєРѕР№ РІРЅСѓС‚СЂРёРёРіСЂРѕРІС‹С… С‚СЂР°РЅР·Р°РєС†РёР№).
     /// </summary>
     public int loginStatus;
 }
@@ -41,12 +41,12 @@ public class GetLoginStatusCallbackData : VKPlayWebEventArgsBase
 public class UserInfoCallbackData : VKPlayWebEventArgsBase
 {
     /// <summary>
-    /// ID пользователя на платформе.
+    /// ID РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅР° РїР»Р°С‚С„РѕСЂРјРµ.
     /// </summary>
     public int uid;
 
     /// <summary>
-    /// MD5 хэш от почты пользователя.
+    /// MD5 С…СЌС€ РѕС‚ РїРѕС‡С‚С‹ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.
     /// </summary>
     public string hash;
 }
@@ -55,32 +55,32 @@ public class UserInfoCallbackData : VKPlayWebEventArgsBase
 public class UserProfileCallbackData : VKPlayWebEventArgsBase
 {
     /// <summary>
-    /// ID пользователя на платформе;
+    /// ID РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅР° РїР»Р°С‚С„РѕСЂРјРµ;
     /// </summary>
     public int uid;
 
     /// <summary>
-    /// Ник пользователя;
+    /// РќРёРє РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ;
     /// </summary>
     public string nick;
 
     /// <summary>
-    /// Ссылка (URL) на изображение для аватара пользователя;
+    /// РЎСЃС‹Р»РєР° (URL) РЅР° РёР·РѕР±СЂР°Р¶РµРЅРёРµ РґР»СЏ Р°РІР°С‚Р°СЂР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ;
     /// </summary>
     public string avatar;
 
     /// <summary>
-    /// Год рождения пользователя;
+    /// Р“РѕРґ СЂРѕР¶РґРµРЅРёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ;
     /// </summary>
     public string birthyear;
 
     /// <summary>
-    /// Пол пользователя, "male" или "female";
+    /// РџРѕР» РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, "male" РёР»Рё "female";
     /// </summary>
     public string sex;
 
     /// <summary>
-    /// Уникальный строковый идентификатор пользователя.
+    /// РЈРЅРёРєР°Р»СЊРЅС‹Р№ СЃС‚СЂРѕРєРѕРІС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.
     /// </summary>
     public string slug;
 }
@@ -89,7 +89,7 @@ public class UserProfileCallbackData : VKPlayWebEventArgsBase
 public class PaymentFrameUrlCallbackData : VKPlayWebEventArgsBase
 {
     /// <summary>
-    /// Ссылка (URL) на платежный фрейм.
+    /// РЎСЃС‹Р»РєР° (URL) РЅР° РїР»Р°С‚РµР¶РЅС‹Р№ С„СЂРµР№Рј.
     /// </summary>
     public string url;
 }
@@ -98,12 +98,12 @@ public class PaymentFrameUrlCallbackData : VKPlayWebEventArgsBase
 public class GetAuthTokenCallbackData : VKPlayWebEventArgsBase
 {
     /// <summary>
-    /// ID пользователя в платформе;
+    /// ID РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РІ РїР»Р°С‚С„РѕСЂРјРµ;
     /// </summary>
     public int uid;
 
     /// <summary>
-    /// Авторизационный токен.
+    /// РђРІС‚РѕСЂРёР·Р°С†РёРѕРЅРЅС‹Р№ С‚РѕРєРµРЅ.
     /// </summary>
     public string hash;
 }
@@ -112,7 +112,7 @@ public class GetAuthTokenCallbackData : VKPlayWebEventArgsBase
 public class PaymentReceivedCallbackData : VKPlayWebEventArgsBase
 {
     /// <summary>
-    /// ID пользователя в платформе;
+    /// ID РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РІ РїР»Р°С‚С„РѕСЂРјРµ;
     /// </summary>
     public int uid;
 }
@@ -120,39 +120,39 @@ public class PaymentReceivedCallbackData : VKPlayWebEventArgsBase
 [Serializable]
 public class PaymentWindowClosedCallbackData : VKPlayWebEventArgsBase
 {
-    // Пусто.
+    // РџСѓСЃС‚Рѕ.
 }
 
 [Serializable]
 public class ConfirmWindowClosedCallbackData : VKPlayWebEventArgsBase
 {
-    // Пусто.
+    // РџСѓСЃС‚Рѕ.
 }
 
 [Serializable]
 public class ApiInitCallbackData : VKPlayWebEventArgsBase
 {
-    // Пусто.
+    // РџСѓСЃС‚Рѕ.
 }
 
 [Serializable]
 public class AdsCallbackData : VKPlayWebEventArgsBase
 {
     /// <summary>
-    /// "adCompleted" - реклама просмотрена;
+    /// "adCompleted" - СЂРµРєР»Р°РјР° РїСЂРѕСЃРјРѕС‚СЂРµРЅР°;
     /// <br/>
-    /// "adDismissed" - реклама пропущена или отсутствует;
+    /// "adDismissed" - СЂРµРєР»Р°РјР° РїСЂРѕРїСѓС‰РµРЅР° РёР»Рё РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚;
     /// <br/>
-    /// "adError" - реклама не была показана вследствие возникшей ошибки.
+    /// "adError" - СЂРµРєР»Р°РјР° РЅРµ Р±С‹Р»Р° РїРѕРєР°Р·Р°РЅР° РІСЃР»РµРґСЃС‚РІРёРµ РІРѕР·РЅРёРєС€РµР№ РѕС€РёР±РєРё.
     /// </summary>
     public string type;
 
     /// <summary>
-    /// "UndefinedAdError" - ошибка показа рекламы;
+    /// "UndefinedAdError" - РѕС€РёР±РєР° РїРѕРєР°Р·Р° СЂРµРєР»Р°РјС‹;
     /// <br/>
-    /// "AdblockDetectedAdError" - обнаружен блокировщик рекламы;
+    /// "AdblockDetectedAdError" - РѕР±РЅР°СЂСѓР¶РµРЅ Р±Р»РѕРєРёСЂРѕРІС‰РёРє СЂРµРєР»Р°РјС‹;
     /// <br/>
-    /// "WaterfallConfigLoadFailed" - ошибка показа рекламы.
+    /// "WaterfallConfigLoadFailed" - РѕС€РёР±РєР° РїРѕРєР°Р·Р° СЂРµРєР»Р°РјС‹.
     /// </summary>
     public string code;
 }
@@ -161,13 +161,13 @@ public class AdsCallbackData : VKPlayWebEventArgsBase
 public class VKPlayWebAdsConfig
 {
     /// <summary>
-    /// "admanSource,admanagerSource" ИЛИ
+    /// "admanSource,admanagerSource" РР›Р
     /// <br/>
-    /// "admanSource" ИЛИ
+    /// "admanSource" РР›Р
     /// <br/>
-    /// "admanagerSource" ИЛИ
+    /// "admanagerSource" РР›Р
     /// <br/>
-    /// ничего (null), будет выбран лучший источник рекламы.
+    /// РЅРёС‡РµРіРѕ (null), Р±СѓРґРµС‚ РІС‹Р±СЂР°РЅ Р»СѓС‡С€РёР№ РёСЃС‚РѕС‡РЅРёРє СЂРµРєР»Р°РјС‹.
     /// </summary>
     public string sources;
 
@@ -210,7 +210,7 @@ public class VKPlayWebMerchantParamBase
     public int amount;
     public string description;
     public string currency;
-    // наследуйте от этого класса чтобы добавить доп. опции...
+    // РЅР°СЃР»РµРґСѓР№С‚Рµ РѕС‚ СЌС‚РѕРіРѕ РєР»Р°СЃСЃР° С‡С‚РѕР±С‹ РґРѕР±Р°РІРёС‚СЊ РґРѕРї. РѕРїС†РёРё...
 }
 
 [Serializable]

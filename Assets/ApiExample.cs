@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ApiExample : MonoBehaviour
 {
-    public VKPlayWeb api;
+    private VKPlayWeb api;
 
     // Start is called before the first frame update
     void Start()
@@ -13,7 +13,7 @@ public class ApiExample : MonoBehaviour
 
         api = VKPlayWeb.instance;
 
-        var gmrId = 1;
+        var gmrId = 1; // <<< заменить на свой!!!!
 
         api.apiInitCallback += (sender, args) =>
         {
@@ -43,7 +43,7 @@ public class ApiExample : MonoBehaviour
             }
         };
 
-        Debug.Log("before init");
+        Debug.Log("before api init");
 
         api.init(gmrId);
     }
