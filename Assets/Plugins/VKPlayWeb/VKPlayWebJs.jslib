@@ -67,6 +67,10 @@ mergeInto(LibraryManager.library, {
 				userSocialFriendsCallback: function(data) {
 					console.log('userSocialFriendsCallback'); console.log(data);
 					Module.SendMessage(unityGameObjectName, 'ThrowUserSocialFriends', JSON.stringify(data));
+				},
+				getGameInventoryItemsCallback: function(data) {
+					console.log('getGameInventoryItemsCallback'); console.log(data);
+					Module.SendMessage(unityGameObjectName, 'ThrowGetGameInventoryItems', JSON.stringify(data));
 				}
 			};
 			
