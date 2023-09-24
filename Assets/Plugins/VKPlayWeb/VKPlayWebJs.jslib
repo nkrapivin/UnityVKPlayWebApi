@@ -2,14 +2,14 @@ mergeInto(LibraryManager.library, {
 	/* -- */
 
 	VKPlayWeb_Init: function(gmrIdInt, gameObjectNameStringPtr) {
-		if (typeof externalApi !== 'undefined') {
+		if (typeof window.__VkExternalApi !== 'undefined') {
 			console.log('vkplay api is already initialized');
 			return;
 		}
 		
 		let sf = (typeof UTF8ToString === 'undefined') ? Pointer_stringify : UTF8ToString;
 		var unityGameObjectName = sf(gameObjectNameStringPtr);
-		var externalApi = null;
+		window.__VkExternalApi = null;
 		
 		let scriptTag = document.createElement('script');
 		scriptTag.type = 'text/javascript';
@@ -87,7 +87,7 @@ mergeInto(LibraryManager.library, {
 				ifapi(callbacks).then(
 					function(eapi) {
 						console.log('vkplay api full load:'); console.log(eapi);
-						externalApi = eapi;
+						window.__VkExternalApi = eapi;
 						Module.SendMessage(unityGameObjectName, 'ThrowApiInit', JSON.stringify({ 'status': 'ok' }));
 					},
 					function(apierr) {
@@ -102,94 +102,96 @@ mergeInto(LibraryManager.library, {
 			console.log('vk api script error:'); console.log(ev);
 			Module.SendMessage(unityGameObjectName, 'ThrowApiInit', JSON.stringify({ 'status': 'error', 'errcode': 1, 'errmsg': 'script error' }));
 		};
+		console.log('vk api appending element:');
 		document.head.appendChild(scriptTag);
+		console.log('vk api appended, returning...');
 	},
 
 	VKPlayWeb_GetLoginStatus: function() {
-		if (typeof externalApi !== 'undefined') {
-			externalApi.getLoginStatus();
+		if (typeof window.__VkExternalApi !== 'undefined') {
+			window.__VkExternalApi.getLoginStatus();
 		}
 	},
 	
 	VKPlayWeb_RegisterUser: function() {
-		if (typeof externalApi !== 'undefined') {
-			externalApi.registerUser();
+		if (typeof window.__VkExternalApi !== 'undefined') {
+			window.__VkExternalApi.registerUser();
 		}
 	},
 	
 	VKPlayWeb_GetAuthToken: function() {
-		if (typeof externalApi !== 'undefined') {
-			externalApi.getAuthToken();
+		if (typeof window.__VkExternalApi !== 'undefined') {
+			window.__VkExternalApi.getAuthToken();
 		}
 	},
 	
 	VKPlayWeb_AuthUser: function() {
-		if (typeof externalApi !== 'undefined') {
-			externalApi.authUser();
+		if (typeof window.__VkExternalApi !== 'undefined') {
+			window.__VkExternalApi.authUser();
 		}
 	},
 	
 	VKPlayWeb_UserProfile: function() {
-		if (typeof externalApi !== 'undefined') {
-			externalApi.userProfile();
+		if (typeof window.__VkExternalApi !== 'undefined') {
+			window.__VkExternalApi.userProfile();
 		}
 	},
 	
 	VKPlayWeb_UserInfo: function() {
-		if (typeof externalApi !== 'undefined') {
-			externalApi.userInfo();
+		if (typeof window.__VkExternalApi !== 'undefined') {
+			window.__VkExternalApi.userInfo();
 		}
 	},
 	
 	VKPlayWeb_ReloadWindow: function() {
-		if (typeof externalApi !== 'undefined') {
-			externalApi.reloadWindow();
+		if (typeof window.__VkExternalApi !== 'undefined') {
+			window.__VkExternalApi.reloadWindow();
 		}
 	},
 	
 	VKPlayWeb_ShowAds: function(adsConfigJsonString) {
-		if (typeof externalApi !== 'undefined') {
+		if (typeof window.__VkExternalApi !== 'undefined') {
 			let sf = (typeof UTF8ToString === 'undefined') ? Pointer_stringify : UTF8ToString;
-			externalApi.showAds(JSON.parse(sf(adsConfigJsonString)));
+			window.__VkExternalApi.showAds(JSON.parse(sf(adsConfigJsonString)));
 		}
 	},
 	
 	VKPlayWeb_PaymentFrame: function(argsJsonString) {
-		if (typeof externalApi !== 'undefined') {
+		if (typeof window.__VkExternalApi !== 'undefined') {
 			let sf = (typeof UTF8ToString === 'undefined') ? Pointer_stringify : UTF8ToString;
-			externalApi.paymentFrame(JSON.parse(sf(argsJsonString)));
+			window.__VkExternalApi.paymentFrame(JSON.parse(sf(argsJsonString)));
 		}
 	},
 	
 	VKPlayWeb_PaymentFrameItem: function(argsJsonString) {
-		if (typeof externalApi !== 'undefined') {
+		if (typeof window.__VkExternalApi !== 'undefined') {
 			let sf = (typeof UTF8ToString === 'undefined') ? Pointer_stringify : UTF8ToString;
-			externalApi.paymentFrameItem(JSON.parse(sf(argsJsonString)));
+			window.__VkExternalApi.paymentFrameItem(JSON.parse(sf(argsJsonString)));
 		}
 	},
 	
 	VKPlayWeb_PaymentFrameUrl: function(argsJsonString) {
-		if (typeof externalApi !== 'undefined') {
+		if (typeof window.__VkExternalApi !== 'undefined') {
 			let sf = (typeof UTF8ToString === 'undefined') ? Pointer_stringify : UTF8ToString;
-			externalApi.paymentFrameUrl(JSON.parse(sf(argsJsonString)));
+			window.__VkExternalApi.paymentFrameUrl(JSON.parse(sf(argsJsonString)));
 		}
 	},
 	
 	VKPlayWeb_UserFriends: function() {
-		if (typeof externalApi !== 'undefined') {
-			externalApi.userFriends();
+		if (typeof window.__VkExternalApi !== 'undefined') {
+			window.__VkExternalApi.userFriends();
 		}
 	},
 	
 	VKPlayWeb_UserSocialFriends: function() {
-		if (typeof externalApi !== 'undefined') {
-			externalApi.userSocialFriends();
+		if (typeof window.__VkExternalApi !== 'undefined') {
+			window.__VkExternalApi.userSocialFriends();
 		}
 	},
 	
 	VKPlayWeb_GetGameInventoryItems: function() {
-		if (typeof externalApi !== 'undefined') {
-			externalApi.getGameInventoryItems();
+		if (typeof window.__VkExternalApi !== 'undefined') {
+			window.__VkExternalApi.getGameInventoryItems();
 		}
 	}
 
