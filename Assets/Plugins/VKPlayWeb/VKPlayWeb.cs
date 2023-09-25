@@ -2,6 +2,9 @@ using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
+/// <summary>
+/// Базовый класс для коллбеков которые сообщают об ошибках через status или errcode
+/// </summary>
 [Serializable]
 public class VKPlayWebEventArgsBase : EventArgs
 {
@@ -74,7 +77,7 @@ public class UserProfileCallbackData : VKPlayWebEventArgsBase
     /// <summary>
     /// Год рождения пользователя;
     /// </summary>
-    public string birthyear;
+    public int birthyear;
 
     /// <summary>
     /// Пол пользователя, "male" или "female";
@@ -108,6 +111,11 @@ public class GetAuthTokenCallbackData : VKPlayWebEventArgsBase
     /// Авторизационный токен.
     /// </summary>
     public string hash;
+
+    /// <summary>
+    /// Полный URL-адрес игры.
+    /// </summary>
+    public string url;
 }
 
 [Serializable]
@@ -137,8 +145,11 @@ public class ApiInitCallbackData : VKPlayWebEventArgsBase
     // Пусто.
 }
 
+/// <summary>
+/// Данный класс не использует status для сообщения об ошибках, используйте code.
+/// </summary>
 [Serializable]
-public class AdsCallbackData : VKPlayWebEventArgsBase
+public class AdsCallbackData : EventArgs
 {
     /// <summary>
     /// "adCompleted" - реклама просмотрена;
